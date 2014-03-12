@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% set code = error.code || 500 %}
+{% set title = "#" + code + " Internal Server Error" %}
+{% set message = error.message || "Something is unreasonably wrong." %}
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{ title }}</title>
+		<meta name="viewport" content="width=device-width">
+		<link rel='stylesheet' href='/build/style.css' />
+	</head>
+	<body>
+		<div id="main">
+			<h1>{{ title }}</h1>
+			<p>{{ message }}</p>
+		</div>
+	</body>
+</html>
