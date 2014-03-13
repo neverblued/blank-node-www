@@ -1,6 +1,6 @@
 {
   "name": "blank-node-www",
-  "description": "node.js website sketch",
+  "description": "node.js website frame",
   "version": "0.0.1",
   "private": false,
   "scripts": {
