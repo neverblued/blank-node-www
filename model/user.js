@@ -1,7 +1,7 @@
 var crypto = require("crypto"),
-	model = require("./model"),
+	model = require("./index"),
 	db = model.db,
-	config = require("./www/config");
+	config = require("./../www/config");
 
 var user = new db.Schema({
 	registered: {type: Date, default: new Date()},

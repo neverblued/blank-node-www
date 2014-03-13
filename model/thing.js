@@ -1,7 +1,7 @@
 var _ = require("underscore"),
-	model = require("./model"),
+	model = require("./index"),
 	db = model.db,
-	act = require("./www/act");
+	act = require("./../www/act");
 
 var thing = new db.Schema({
 	date: {type: Date, default: new Date()},
@@ -51,7 +51,7 @@ thing.statics.record = function(user, next){
 	});
 };
 
-exports = module.exports = db.model("thing", thing);
+thing = exports = module.exports = db.model("thing", thing);
 
 act("thing.record", function(request, response, next){
 	thing.record(request.user, next);

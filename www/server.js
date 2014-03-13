@@ -27,9 +27,9 @@ server.configure(function(){
 	server.use(express.favicon());
 	server.use(express.static(__dirname + "/static"));
 	server.use(express.bodyParser());
+//	// following equals bodyParser
 //	server.use(express.json());
 //	server.use(express.urlencoded());
-	var secret = "hardcode must not be here";
 	server.use(express.cookieParser());
 	server.use(express.session({
 		key: "session-id",
@@ -39,7 +39,7 @@ server.configure(function(){
 			httpOnly: true,
 			maxAge: config.cookieLife
 		},
-		secret: secret,
+		secret: config.salt,
 		store: new mongoStore()
 	}));
 	server.use(passport.initialize());
