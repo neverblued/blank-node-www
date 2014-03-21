@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+	NAME="$1"
+else
+	echo "# cd blank-node-www"
+	echo "# ./factory NAME"
+	exit 1
+fi
+
+git clone git@github.com:neverblued/blank-node-www.git ../$NAME
+cd ../$NAME
+git remote rm origin
+
+echo
+echo "[!] $(pwd) :-->"
+ls
+echo
