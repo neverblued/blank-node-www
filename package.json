@@ -1,35 +1,44 @@
 {
   "name": "blank-node-www",
-  "description": "node.js website frame",
-  "version": "0.0.1",
+  "description": "node.js web site framework",
+  "author": "Dmytro Pinskyi (www.neverblued.info)",
   "private": false,
-  "scripts": {
-    "start": "clear && node www/index.js",
-    "test": "clear && node test/index.js"
-  },
+  "repository": "neverblued/blank-node-wwww",
+  "version": "0.0.3",
+  "license": "MIT",
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   },
   "dependencies": {
-    "express": "*",
+	"body-parser": "*",
+	"cookie-parser": "*",
+    "cookies": "*",
+    "crypto": "*",
+    "errorhandler": "*",
+    "express": "4.x",
+    "express-session": "*",
     "html": "*",
     "less": "*",
+	"mongo-store": "*",
     "mongoose": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-facebook": "*",
     "qunit": "*",
+    "serve-favicon": "*",
     "swig": "*",
     "underscore": "*"
+  },
+  "scripts": {
+    "start": "clear && node www/index.js",
+    "test": "clear && node test/index.js"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-less": "~0.9.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.3.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "crypto": "0.0.3",
-    "passport": "~0.2.0",
-    "passport-local": "~0.1.6",
-    "passport-facebook": "~1.0.2",
-    "express-session-mongo": "0.0.3"
+    "grunt-contrib-watch": "~0.5.3"
   }
 }

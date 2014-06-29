@@ -1,7 +1,7 @@
-var crypto = require("crypto"),
-	model = require("./index"),
+var crypto = require('crypto'),
+	model = require('./index'),
 	db = model.db,
-	config = require("./../www/config");
+	config = require('./../config');
 
 var user = new db.Schema({
 	registered: {type: Date, default: new Date()},
@@ -18,11 +18,11 @@ user.methods.authorize = function(plainText){
 };
 
 user.statics.encryptPassword = function(password){
-	return crypto.createHmac("sha1", config.salt).update(password).digest("hex");
+	return crypto.createHmac('sha1', config.salt).update(password).digest('hex');
 };
 
 user.statics.findByName = function(name, callback){
 	this.findOne({name: name}, callback);
 };
 
-user = exports = module.exports = db.model("user", user);
+user = exports = module.exports = db.model('user', user);

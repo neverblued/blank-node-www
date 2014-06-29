@@ -1,7 +1,7 @@
 var actions = {};
 module.exports = function(name, handler){
 	if(!name){
-		throw new Error("no name");
+		throw new Error('no name');
 	}
 	if(handler){
 		actions[name] = handler;
@@ -11,5 +11,5 @@ module.exports = function(name, handler){
 	return handler;
 };
 
-require("./security");
-require("./../model");
+require('./security');
+require('./model');

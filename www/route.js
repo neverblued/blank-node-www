@@ -1,16 +1,18 @@
+//var model = require('./model');
 var view = require('./view');
+var route = module.exports;
 
-exports.error = function(error, request, response, next){
-	var data = { request: request, error: error };
+route.error = function(error, request, response, next){
+	var data = {request: request, error: error};
 	return view.page(response.status(500), '5xx', data);
 };
 
-exports.undefined = function(request, response){
-	var data = { url: request.originalUrl };
+route.undefined = function(request, response){
+	var data = {url: request.originalUrl};
 	return view.page(response.status(404), '404', data);
 };
 
-exports.page = function(name, dataExtractor){
+route.page = function(name, dataExtractor){
 	return function(request, response, next){
 		try{
 			var data = dataExtractor ? dataExtractor(request) : {request: request};
@@ -21,17 +23,17 @@ exports.page = function(name, dataExtractor){
 	};
 };
 
-exports.redirect = function(uri){
+route.redirect = function(uri){
 	return function(request, response, next){
 		response.redirect(uri);
 	};
 };
 
-exports.redirectBack = function(request, response, next){
+route.redirectBack = function(request, response, next){
 	response.redirect(request.get("referer"));
 };
 
-exports.ok = function(request, response, next){
+route.ok = function(request, response, next){
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(JSON.stringify({ok: true}));
 };

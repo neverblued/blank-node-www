@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>{% block title %}blank-node-www{% endblock %}</title>
+		<title>{% block title %}{{ model.site.title }}{% endblock %}</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="/build/style.css" />
 		<script type="text/javascript" src="/build/script{% if view.minify() %}.min{% endif %}.js"></script>

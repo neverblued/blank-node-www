@@ -1,37 +1,38 @@
-var _ = require("underscore"),
-	model = require("./index"),
+var _ = require('underscore'),
+	model = require('./index'),
 	db = model.db,
-	act = require("./../www/act");
+	schema = schema,
+	act = require('./../www/act');
 
-var thing = new db.Schema({
+var thing = new schema({
 	date: {type: Date, default: new Date()},
-	user: {type: db.Schema.Types.ObjectId, ref: "user", index: true},
+	user: {type: schema.Types.ObjectId, ref: 'user', index: true},
 	public: {type: Boolean, default: false, index: true}
 });
 
 thing.statics.get = function(user, next){
 	if(!user){
-		return next(new Error("no user"));
+		return next(new Error('no user'));
 	}
-	this.findOne({"user": user.id}, next);
+	this.findOne({'user': user.id}, next);
 };
 
 thing.statics.delete = function(user, next){
 	if(!user){
-		return next(new Error("no user"));
+		return next(new Error('no user'));
 	}
-	this.remove({"user": user.id}, next);
+	this.remove({'user': user.id}, next);
 };
 
 thing.statics.record = function(user, next){
 	if(!user){
-		return next(new Error("no user"));
+		return next(new Error('no user'));
 	}
 	var thing = this,
 		create = function(public){
 			thing.create({
-				"user": user.id,
-				"public": public
+				'user': user.id,
+				'public': public
 			}, next);
 		},
 		remove = function(next){
@@ -51,12 +52,12 @@ thing.statics.record = function(user, next){
 	});
 };
 
-thing = exports = module.exports = db.model("thing", thing);
+thing = exports = module.exports = db.model('thing', thing);
 
-act("thing.record", function(request, response, next){
+act('thing.record', function(request, response, next){
 	thing.record(request.user, next);
 });
 
-act("thing.delete", function(request, response, next){
+act('thing.delete', function(request, response, next){
 	thing.delete(request.user, next);
 });
