@@ -1,7 +1,19 @@
+@page-width: 666px;
+
+/* Цвета */
+
+@full: #111;
+@rich: #666;
+@poor: #DDD;
+@back: #FFF;
+
+@link: #2900FF;
+
+/* Страницы */
+
 body {
-	margin: 0 50px;
-	background: white;
-	color: black;
+	background: @back;
+	color: @full;
 
 	&.error {
 		background: #959595; /* Old browsers */
@@ -17,32 +29,104 @@ body {
 }
 
 a {
-	color: #2900FF;
 	text-decoration: none;
-
+	&, &:visited {
+		color: @link;
+	}
 	&:hover {
 		text-decoration: underline;
 	}
 }
-
 .error a {
 	color: #A290FF;
 }
 
-.username {
-	font-style: italic;
+.page {
+	width: @page-width;
+	min-width: @page-width;
+	max-width: @page-width;
+	margin: 0 auto;
 }
 
-#header {
-	padding: 5px 40px;
-	background: #E0E9E6;
+/* Контент */
 
-	.user, .menu {
+h1 {
+	margin: .6em 0 .1em;
+	/*text-align: center;*/
+}
+h2, h3, h4 {
+	margin: .9em 0 .5em;
+}
+h1 + h4,
+h2 + h4,
+h3 + h4 {
+	margin-top: .2em;
+	/*text-align: center;*/
+}
+
+ul {
+	padding-left: 1.6em;
+	margin-top: 1em;
+	
+	li {
+		margin-top: .6em;
+
+		ul {
+			margin-left: 1.6em;
+
+			li {
+				margin-bottom: .4em;
+			}	
+		}
+
+		p {
+			margin: .2em 0;
+		}
+	}
+}
+
+table {
+	width: 100%;
+	margin: 1em 0;
+	border-collapse: collapse;
+	
+	td, th {
+		padding: .5em 1em;
+		border: solid 1px @poor;
+	}
+	
+	.tip {
+		td, th {
+			padding: .7em 1.5em;
+			border: none;
+			font-style: italic;
+		}
+	}
+}
+
+img {
+
+	&.left {
 		float: left;
-		margin-right: 40px;
+		margin-right: 1.6em;
 	}
 
-	.user .name {
-		.username
+	&.right {
+		float: right;
+		margin-left: 1.6em;
+	}
+}
+
+p {
+	margin: .7em 0;
+}
+
+.epigraph {
+	padding-left: 40%;
+	padding-right: 0%;
+	margin-bottom: 2em;
+
+	p:first-child {
+		margin-top: 0;
 	}
 }

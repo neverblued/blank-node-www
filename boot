@@ -1,3 +1,4 @@
 #!/bin/bash
 
-grunt && ./start
+npm install &&
+./start

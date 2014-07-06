@@ -1,3 +1,5 @@
+/*
+
 var act = {};
 
 act.recordThing = function(tag, order){
@@ -10,25 +12,22 @@ act.deleteThing = function(tag, order){
 	}, "json");
 };
 
-$(function(){
+if(request.user){
 
-	var user = request.user;
-	if(!user){
-		return;
-	}
-	
 	var things = $(".things");
 	if(things.find(".thing").length < 2){
 		return;
 	}
-	
+
 	things.sortable({
 		update: function(event, ui){
 			act.recordThing();
 		}
 	});
-	
+
 	$(".thing.action .delete").click(function(){
 		act.deleteThing();
 	});
-});
+}
+
+*/

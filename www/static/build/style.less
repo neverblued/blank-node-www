@@ -1,8 +1,15 @@
-/*! blank-node-www - v0.0.3 - 2014-06-29 */
+/*! blank-node-www - v0.0.3 - 2014-07-06 */
 
 * {
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+html, body {
+	width: 100%;
 }
 
 a img {
@@ -21,20 +28,102 @@ a img {
 	clear: both;
 }
 
-html {
-	width: 100%;
+.center {
+	text-align: center;
 }
 
-html,
-body {
-	min-width: 600px;
-	height: 100%;
+iframe {
+	border: none;
+}
+
+table {
+	
+	td, th {
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		font-weight: bold;
+	}
+	
+	&.numeric td, .numeric {
+		text-align: center;
+	}
+
+	&.text td, .text,
+	&.numeric .text {
+		text-align: left;
+	}
+}
+
+@font-face {
+    font-family: 'FreeSans';
+    src: url('/theme/font/FreeSans.ttf') format('truetype');
 }
 
 body {
-	margin: 0 50px;
-	background: white;
-	color: black;
+	line-height: 140%;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: 'FreeSans', sans-serif;
+	font-weight: normal;
+	font-size: 100%;
+	@media screen and (max-width: 37.5em) {
+		font-size: 150%;
+	}
+}
+
+h1 {
+	font-size: 450%;
+}
+h2 {
+	font-size: 300%;
+}
+h3 {
+	font-size: 200%;
+}
+h4 {
+	font-size: 150%;
+}
+
+nav {
+	font-weight: bold;
+	font-size: 150%;
+}
+
+strong {
+	font-weight: bold;
+	font-size: 137%;
+}
+
+@media screen and (max-width: 37.5em) {
+	table {
+		font-size: 70%;
+		line-height: 120%;
+	}
+}
+
+@page-width: 666px;
+
+/* Цвета */
+
+@full: #111;
+@rich: #666;
+@poor: #DDD;
+@back: #FFF;
+
+@link: #2900FF;
+
+/* Страницы */
+
+body {
+	background: @back;
+	color: @full;
 
 	&.error {
 		background: #959595; /* Old browsers */
@@ -50,64 +139,104 @@ body {
 }
 
 a {
-	color: #2900FF;
 	text-decoration: none;
-
+	&, &:visited {
+		color: @link;
+	}
 	&:hover {
 		text-decoration: underline;
 	}
 }
-
 .error a {
 	color: #A290FF;
 }
 
-.username {
-	font-style: italic;
+.page {
+	width: @page-width;
+	min-width: @page-width;
+	max-width: @page-width;
+	margin: 0 auto;
 }
 
-#header {
-	padding: 5px 40px;
-	background: #E0E9E6;
+/* Контент */
 
-	.user, .menu {
+h1 {
+	margin: .6em 0 .1em;
+	/*text-align: center;*/
+}
+h2, h3, h4 {
+	margin: .9em 0 .5em;
+}
+h1 + h4,
+h2 + h4,
+h3 + h4 {
+	margin-top: .2em;
+	/*text-align: center;*/
+}
+
+ul {
+	padding-left: 1.6em;
+	margin-top: 1em;
+	
+	li {
+		margin-top: .6em;
+
+		ul {
+			margin-left: 1.6em;
+
+			li {
+				margin-bottom: .4em;
+			}	
+		}
+
+		p {
+			margin: .2em 0;
+		}
+	}
+}
+
+table {
+	width: 100%;
+	margin: 1em 0;
+	border-collapse: collapse;
+	
+	td, th {
+		padding: .5em 1em;
+		border: solid 1px @poor;
+	}
+	
+	.tip {
+		td, th {
+			padding: .7em 1.5em;
+			border: none;
+			font-style: italic;
+		}
+	}
+}
+
+img {
+
+	&.left {
 		float: left;
-		margin-right: 40px;
+		margin-right: 1.6em;
 	}
 
-	.user .name {
-		.username
+	&.right {
+		float: right;
+		margin-left: 1.6em;
 	}
-}
-
-body {
-	line-height: 130%;
-}
-
-body, h1, h2, h3, h4 {
-	font: normal 100%/100% 'Arial';
 }
 
 p {
-	margin: 1em 0;
+	margin: .7em 0;
 }
 
-h1, h2, h3, h4 {
-	margin: 1em 0;
-}
+.epigraph {
+	padding-left: 40%;
+	padding-right: 0%;
+	margin-bottom: 2em;
 
-h1 {
-	font-size: 350%;
-}
-
-h2 {
-	font-size: 280%;
-}
-
-h3 {
-	font-size: 200%;
-}
-
-h4 {
-	font-size: 150%;
+	p:first-child {
+		margin-top: 0;
+	}
 }

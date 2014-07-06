@@ -5,14 +5,12 @@
 		<title>{% block title %}{{ model.site.title }}{% endblock %}</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="/build/style.css" />
-		<script type="text/javascript" src="/build/script{% if view.minify() %}.min{% endif %}.js"></script>
-		<script type="text/javascript">
-			var request = {};
-			request.user = {{ (!!request.user)|json }};
-			{% block request %}{% endblock %}
-		</script>
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		{% include "document/head.html" %}
+		<div class="page">
+			{% block body %}{% endblock %}
+		</div>
+		{% include "document/tail.html" %}
 	</body>
 </html>

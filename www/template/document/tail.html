@@ -1,0 +1,6 @@
+<script type="text/javascript" src="/build/script{% if view.minify() %}.min{% endif %}.js"></script>
+<script type="text/javascript">
+	var request = {};
+	request.user = {{ (!!request.user)|json }};
+	{% block request %}{% endblock %}
+</script>

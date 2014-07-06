@@ -3,6 +3,13 @@
 	padding: 0;
 }
 
+html {
+	height: 100%;
+}
+html, body {
+	width: 100%;
+}
+
 a img {
 	border: none;
 }
@@ -17,4 +24,33 @@ a img {
 
 .clear {
 	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+iframe {
+	border: none;
+}
+
+table {
+	
+	td, th {
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		font-weight: bold;
+	}
+	
+	&.numeric td, .numeric {
+		text-align: center;
+	}
+
+	&.text td, .text,
+	&.numeric .text {
+		text-align: left;
+	}
 }

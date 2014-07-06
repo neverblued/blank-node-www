@@ -1,15 +1,18 @@
 #!/bin/bash
 
+PARENT="blank-node-www"
+ORIGIN="git@github.com:neverblued/$PARENT.git"
+
 if [ -n "$1" ]
 then
 	NAME="$1"
 else
-	echo "# cd blank-node-www"
+	echo "# cd $PARENT"
 	echo "# ./factory NAME"
 	exit 1
 fi
 
-git clone git@github.com:neverblued/blank-node-www.git ../$NAME
+git clone $ORIGIN ../$NAME
 cd ../$NAME
 git remote rm origin
 

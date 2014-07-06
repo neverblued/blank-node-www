@@ -1,9 +1,10 @@
-{% extends "layout/error.html" %}
+{% extends "document/error.html" %}
 
 {% block title %}404 Not Found{% endblock %}
 
 {% block body %}
-	<h1>Not Found (error #404)</h1>
-	<p>Sorry, there is no web content for {{ url }}</p>
+	<h1>Not Found</h1>
+	<h4>(error #404)</h4>
+	<p>Sorry, there is no web content for <u>{{ url }}</u></p>
 	<p>Good luck! &rArr; <a href='/'>Home page</a></p>
 {% endblock %}
